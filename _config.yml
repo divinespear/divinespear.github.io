@@ -36,8 +36,8 @@ jekyll-figure:
 
 # Theme settings
 plainwhite:
-  title: DIVINESPEAR'S LIBRARIUM SANCTORUM
-  tagline: Knowledge is power, Guard it well. <strike>Wargear is power, Steal it well.</strike>
+  name: Divinespear
+  tagline: Knowledge is power, Guard it well.<br /><strike>Wargear is power, Steal it well.</strike>
   date_format: "%Y-%m-%d"
   social_links:
     #twitter: thelehhman
