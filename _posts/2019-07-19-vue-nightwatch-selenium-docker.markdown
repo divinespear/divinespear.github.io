@@ -6,35 +6,38 @@ categories: tech node
 tags: [node.js, node, 노드, vue.js, vue, vue-cli, test, 테스트, e2e, nightwatch, selenium, 셀레늄, docker, 도커]
 ---
 테스트란걸 날로 먹다가 (맨날 유닛 테스트 정도만 돌림) 그냥 한번 심심해서 e2e 테스트까지 돌리기로 했다.
-뭐 유닛 테스트나 서버쪽 e2e 테스트는 그냥 잘 돌아간다.
 
+뭐 유닛 테스트나 서버쪽 e2e 테스트는 그냥 잘 돌아간다.\
 하지만 UI가 출동하면 어떨까?
 
 # vue-cli + nightwatch on docker 삽질
 
 ## 삽질의 원인
 
-GitLab에서 CI를 굴리는데, 유닛 테스트나 서버쪽 e2e 테스트는 잘 돌아간다.
+GitLab에서 CI를 굴리는데, 유닛 테스트나 서버쪽 e2e 테스트는 잘 돌아간다.\
 문제는 UI e2e 테스트인데, 도커 기반으로 CI가 굴러가는 GitLab 특성상[^1] 테스트를 위한 적당한 도커 이미지를 찾아야 했다.
 
 근데 그런거 없.어...
 
-그래서 그냥 테스트용으로 node.js 컨테이너를 만들고 셀레늄 컨테이너를 별도로 띄우기로 했다.
+그래서 그냥 테스트용으로 node.js 컨테이너를 만들고 셀레늄 컨테이너를 별도로 띄우기로 했다.\
 그리고 그대로 헬게이트 오픈!
 
 ## 삽질기
  
 진짜 기본적인 설정만 두고 하면 **`http://localhost:8080`** 을 열려고 하기 때문에...
 
-{% figure caption:"셀레늄 파폭: 모라고요?" %}
-![셀레늄 파폭 에러](/assets/images/2019-07-19-01/selenium-result-firefox.png)
-{% endfigure %}
+<figure>
+  <img src="{{site.url}}/assets/images/2019-07-19-01/selenium-result-firefox.png" alt="셀레늄 파폭 에러" />
+  <figcaption>셀레늄 파폭: 모라고요?</figcaption>
+</figure>
 
-{% figure caption:"셀레늄 크롬: 잘 안보이지 말입니다?" %}
-![셀레늄 크롬 에러](/assets/images/2019-07-19-01/selenium-result-chrome.png)
-{% endfigure %}
+<figure>
+  <img src="{{site.url}}/assets/images/2019-07-19-01/selenium-result-chrome.png" alt="셀레늄 크롬 에러" />
+  <figcaption>셀레늄 크롬: 잘 안보이지 말입니다?</figcaption>
+</figure>
 
 Aㅏ...
+
 결국 내 랩탑에 디버깅용 셀레늄 컨테이너를 올리고 vnc로 붙어서 일일히 확인하는 삽질을 해서야 해결할 수 있었다.
 
 ### 삽질 내역
@@ -45,7 +48,7 @@ Aㅏ...
  4. `VUE_NIGHTWATCH_USER_OPTIONS` 환경변수에 JSON을 때려박아서 설정 커스터마이징을 할 수 있는데, 괜시리 복잡해져서 포기.
 
 ## 해결
-`vue.config.js` 에 `devServer.public` 옵션이 있는데, 이걸 설정해주니까 잘 되더라.
+`vue.config.js` 에 `devServer.public` 옵션이 있는데, 이걸 설정해주니까 잘 되더라.\
 근데 나는 docker에서 돌릴거잖아? 아이피가 랜덤이라 난 안될거야 아마.
 
 가 아니지. 답은 만들면 된다.
@@ -131,12 +134,12 @@ module.exports = (function(settings) {
 });
 ```
 
-`package.json`의 `scripts`에는 적절하게 다음을 추가해주고
+**`package.json`**의 `scripts`에는 적절하게 다음을 추가해주고
 ```
 "test:e2e:remote": "vue-cli-service test:e2e --config nightwatch.remote.config.js",
 ```
 
-그리고 `.gitlab-ci.yml` 의 일부
+그리고 **`.gitlab-ci.yml`** 의 일부
 ```yaml
 image: node:12
 stages:
@@ -168,7 +171,7 @@ test:e2e:ui:chrome:
     - npm run test:e2e:remote
 ```
 
-몇시간동안 삽질한 것 같다.
+이거가지고 몇시간동안 삽질한 것 같다.
 
 [^1]: kubernote도 된다고는 하는데 나는 도커가 편해서...
 
