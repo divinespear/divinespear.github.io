@@ -28,6 +28,11 @@ markdown: kramdown
 remote_theme: thelehhman/texture
 plugins:
   - jekyll-feed
+  - jekyll-figure
+
+# Plugin settings
+jekyll-figure:
+  paragraphs: false
 
 # Theme settings
 texture:

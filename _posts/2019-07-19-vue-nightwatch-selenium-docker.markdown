@@ -26,15 +26,13 @@ GitLab에서 CI를 굴리는데, 유닛 테스트나 서버쪽 e2e 테스트는 
  
 진짜 기본적인 설정만 두고 하면 **`http://localhost:8080`** 을 열려고 하기 때문에...
 
-<figure>
-  ![셀레늄 파폭 에러](/_assets/images/2019-07-19-01/selenium-result-firefox.png)
-  <figcaption>셀레늄 파폭: 모라고요?</figcaption>
-</figure>
+{% figure caption:"셀레늄 파폭: 모라고요?" %}
+![셀레늄 파폭 에러](/_assets/images/2019-07-19-01/selenium-result-firefox.png)
+{% endfigure %}
 
-<figure>
-  ![셀레늄 크롬 에러](/_assets/images/2019-07-19-01/selenium-result-chrome.png)
-  <figcaption>셀레늄 크롬: 잘 안보이지 말입니다?</figcaption>
-</figure>
+{% figure caption:"셀레늄 크롬: 잘 안보이지 말입니다?" %}
+![셀레늄 크롬 에러](/_assets/images/2019-07-19-01/selenium-result-chrome.png)
+{% endfigure %}
 
 Aㅏ...
 결국 내 랩탑에 디버깅용 셀레늄 컨테이너를 올리고 vnc로 붙어서 일일히 확인하는 삽질을 해서야 해결할 수 있었다.
