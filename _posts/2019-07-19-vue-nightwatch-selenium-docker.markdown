@@ -19,7 +19,9 @@ GitLab에서 CI를 굴리는데, 유닛 테스트나 서버쪽 e2e 테스트는 
 
 근데 그런거 없.어...
 
-그래서 그냥 테스트용으로 node.js 컨테이너를 만들고 셀레늄 컨테이너를 별도로 띄우기로 했다.  
+그래서 그냥 테스트용으로 node.js 컨테이너를 띄우고 셀레늄 컨테이너를 별도로 띄워서 사용하기로 했다.  
+**그러니까 핵심은 셀레늄 컨테이너에서 node.js 컨테이너의 서버에 접근할 수 있어야 한다.**
+
 그리고 그대로 헬게이트 오픈!
 
 ## 삽질기
@@ -42,18 +44,20 @@ Aㅏ...
 
 ### 삽질 내역
 
- 1. 처음에는 렌더링이 끝나기 전에 확인하나 싶어서 타임아웃 값을 늘려봤는데, 그게 아니더라...
+ 1. 처음에는 렌더링이 끝나기 전에 확인하나 싶어서 타임아웃 값을 늘려봤는데, 나중에 확인해봤더니 역시 URL이 오류였다.
  2. `VUE_DEV_SERVER_URL` 이라는 환경변수를 보게 되어있는데, 이건 vue-cli의 nightwatch 플러그인에서 때려박아준다. 그래서 이걸 따로 설정해봤는데 맛있게 씹어먹더라.
  3. `vue-cli-service test:e2e` 옵션을 보면 `--url` 옵션이 있는데 이걸 설정하면 devserver를 띄우지 않으므로 테스트를 할 수 없다. ~~EPIC FAIL~~.
  4. `VUE_NIGHTWATCH_USER_OPTIONS` 환경변수에 JSON을 때려박아서 설정 커스터마이징을 할 수 있는데, 괜시리 복잡해져서 포기.
 
 ## 해결
-`vue.config.js` 에 `devServer.public` 옵션이 있는데, 이걸 설정해주니까 잘 되더라.  
+`vue.config.js` 에 `devServer.public` 옵션이 있는데, 이걸 설정해주니까 잘 된다.  
 근데 나는 docker에서 돌릴거잖아? 아이피가 랜덤이라 난 안될거야 아마.
 
 가 아니지. 답은 만들면 된다.
 
-일단 환경변수 셀레늄 컨테이너 호스트명을 정의할 `E2E_SELENIUM_HOST`와 테스트할 브라우저를 정의할  `E2E_SELENIUM_BROWSER`를 만들었다.
+일단 환경변수 두 개를 만들었다.  
+일단 환경변수 두 개를 만들었다.  
+`E2E_SELENIUM_HOST`는 셀레늄 컨테이너 호스트명이고, `E2E_SELENIUM_BROWSER`는 테스트할 브라우저의 타입이다.
 
 그리고...
 
@@ -81,6 +85,7 @@ module.exports = {
 **nightwatch 설정** (내 경우에는 원격용으로 `nightwatch.remote.config.js`라는 이름으로 만듬)
 ```javascript
 // headless 모드에서 쓰실 분들은 주석을 해제하시면 되겄습니다.
+
 module.exports = (function(settings) {
   const desiredCapabilities = settings.test_settings.default.desiredCapabilities;
   const name = desiredCapabilities.browserName;
