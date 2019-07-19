@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: post
 title:  "vue-cli + nightwatch on docker 삽질"
 date:   2019-07-19 08:20:00 +0900
 categories: tech node.js

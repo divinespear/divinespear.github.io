@@ -24,9 +24,23 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
+remote_theme: thelehhman/texture
 plugins:
   - jekyll-feed
+
+# Theme settings
+texture:
+  title: DIVINESPEAR'S LIBRARIUM SANCTORUM
+  tagline: Knowledge is power, Guard it well. <strike>Wargear is power, Steal it well.</strike>
+  date_format: "%Y-%m-%d"
+  social_links:
+    #twitter: thelehhman
+    github: divinespear
+    #linkedIn: in/thelehhman # format: locale/username
+  style: blue
+  disqus_shortname: divinespear-github-io
+  analytics_id: UA-40211319-4
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
