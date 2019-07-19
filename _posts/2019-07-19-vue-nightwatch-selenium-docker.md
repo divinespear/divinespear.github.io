@@ -2,7 +2,7 @@
 layout: post
 title:  "vue-cli + nightwatch on docker 삽질"
 date:   2019-07-19 08:20:00 +0900
-categories: tech node
+categories: tech
 tags: [node.js, node, 노드, vue.js, vue, vue-cli, test, 테스트, e2e, nightwatch, selenium, 셀레늄, docker, 도커]
 ---
 테스트란걸 날로 먹다가 (맨날 유닛 테스트 정도만 돌림) 그냥 한번 심심해서 e2e 테스트까지 돌리기로 했다.
@@ -179,4 +179,3 @@ test:e2e:ui:chrome:
 이거가지고 몇시간동안 삽질한 것 같다.
 
 [^1]: kubernote도 된다고는 하는데 나는 도커가 편해서...
-
