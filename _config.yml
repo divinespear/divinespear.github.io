@@ -37,7 +37,7 @@ jekyll-figure:
 # Theme settings
 plainwhite:
   name: Divinespear
-  tagline: 장엄한 삽질의 기록
+  tagline: Knowledge is power, Guard it well.<br/><strike>Wargear is power, Steal it well.</strike>
   date_format: "%Y-%m-%d"
   social_links:
     #twitter: thelehhman
