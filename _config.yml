@@ -42,8 +42,10 @@ plainwhite:
   date_format: "%Y-%m-%d"
   social_links:
     #twitter: thelehhman
-    github: divinespear
     #linkedIn: in/thelehhman # format: locale/username
+    github: divinespear
+    facebook: divinespear
+    instagram: divinespear.kang
   sitemap: true
   disqus_shortname: divinespear-github-io
   analytics_id: UA-40211319-4
