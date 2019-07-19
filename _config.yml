@@ -31,10 +31,6 @@ remote_theme: thelehhman/plainwhite-jekyll
 plugins:
   - jekyll-feed
 
-# Plugin settings
-jekyll-figure:
-  paragraphs: false
-
 # Theme settings
 plainwhite:
   name: Divinespear
