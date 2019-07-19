@@ -8,12 +8,12 @@ tags: [ssl, tls, security, 보안, test, 테스트]
 
 그래서 가져왔다.
 
-## https://www.ssllabs.com/ssltest/
+## [https://www.ssllabs.com/ssltest/](https://www.ssllabs.com/ssltest/)
 
 * 443 포트만 테스트가 가능하다.
 * 결과가 자세하다.
 
-## https://www.htbridge.com/ssl/
+## [https://www.htbridge.com/ssl/](https://www.htbridge.com/ssl/)
 
 * 443 포트 이외의 것도 가능함.
 * 웹서버만 해주는게 아니라 다른 SSL/TLS 설정 가능 서비스도 테스트 해준다.
