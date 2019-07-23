@@ -6,14 +6,15 @@ categories: tech
 tags: [systemd, mount, 마운트, 파티션, samba, nfs]
 ---
 
-# [`systemd.mount`](https://www.freedesktop.org/software/systemd/man/systemd.mount.html)
-
 부팅시 samba하고 NFS가 자동으로 안붙어서 짜증났는데, 덕분에 쉽게 해결했다.  
 autofs 보다는 확실히 편하지...
 
 단, 파일명 붙일 때만 조심해야 한다.
 
 귀찮으면 mount할 대상 경로를 가지고 `systemd-escape`를 돌려서 그걸로 파일명을 붙이면 되지롱.
+
+자세한 것은 [`systemd.mount`](https://www.freedesktop.org/software/systemd/man/systemd.mount.html)를 참고하시라.
+
 
 ## 예제
 
