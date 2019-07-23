@@ -56,3 +56,7 @@ Options=_netdev,relatime,vers=3,rsize=65536,wsize=65536,namlen=255,hard,nolock,p
 [Install]
 WantedBy=multi-user.target
 ```
+
+## 사족
+`samba`는 수시로 끊어지니 `cron`으로 일정시간마다 해당 디렉토리에 액세스 하는 작업을 해주는 것이 좋다.  
+나 같은 경우에는 그냥 keep-alive 개념으로 빈 파일을 하나 `touch`하는 것으로 해결!
