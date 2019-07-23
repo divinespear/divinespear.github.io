@@ -10,8 +10,6 @@ tags: [node.js, node, 노드, vue.js, vue, vue-cli, test, 테스트, e2e, nightw
 뭐 유닛 테스트나 서버쪽 e2e 테스트는 그냥 잘 돌아간다.  
 하지만 UI가 출동하면 어떨까?
 
-# vue-cli + nightwatch on docker 삽질
-
 ## 삽질의 원인
 
 GitLab에서 CI를 굴리는데, 유닛 테스트나 서버쪽 e2e 테스트는 잘 돌아간다.  
