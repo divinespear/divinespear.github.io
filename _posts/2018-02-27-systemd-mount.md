@@ -13,7 +13,7 @@ autofs 보다는 확실히 편하지...
 
 귀찮으면 mount할 대상 경로를 가지고 `systemd-escape`를 돌려서 그걸로 파일명을 붙이면 되지롱.
 
-자세한 것은 [`systemd.mount`](https://www.freedesktop.org/software/systemd/man/systemd.mount.html)를 참고하시라.
+자세한 것은 [`systemd.mount`](https://www.freedesktop.org/software/systemd/man/systemd.mount.html){:target="_blank"} 를 참고하시라.
 
 
 ## 예제
