@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+<div class="post-container">
+<a class="post-link" href="{{ page.url | relative_url }}">
+	<h2 class="post-title">{{ page.title | escape }}</h2>
+</a>
+<div class="post-meta">
+	<ul class="post-categories">
+		{%- for tag in page.categories -%}
+		<li>{{ tag }}</li>
+		{%- endfor -%}
+	</ul>
+	<div class="post-date"><i class="icon-calendar"></i>{{ page.date | date: date_format }}</div>
+</div>
+<div class="post">
+	{{ content }}
+</div>
+{%- if page.comments -%}
+<script src="https://utteranc.es/client.js"
+        repo="divinespear/divinespear.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+{%- endif -%}
