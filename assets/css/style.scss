@@ -11,6 +11,15 @@ main {
       font-size: 16px;
     }
   }
+
+  .posts {
+    li {
+      border-bottom: 1px solid #eee;
+    }
+  }
+  #posts-label {
+    border-bottom: none;
+  }
 }
 
 .utterances {
