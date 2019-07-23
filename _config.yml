@@ -23,8 +23,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #github_username:  jekyll
 show_excerpts: true
 
-# Build settings
+# locale
+lang: ko_KR
 timezone: Asia/Seoul
+
+# Build settings
 markdown: kramdown
 #theme: minima
 remote_theme: thelehhman/plainwhite-jekyll
