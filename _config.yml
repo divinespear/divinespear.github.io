@@ -31,7 +31,16 @@ remote_theme: thelehhman/plainwhite-jekyll
 plugins:
   - jekyll-feed
 
-# Theme settings
+# default setings
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+
+# theme settings
 plainwhite:
   name: Divinespear
   tagline: Knowledge is power, Guard it well.<br/><strike>Wargear is power, Steal it well.</strike>
