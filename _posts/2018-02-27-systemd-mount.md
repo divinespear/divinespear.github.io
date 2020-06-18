@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "systemd로 파티션 마운트하기"
-date:   2018-02-27 03:26:00 +0900
+title: systemd로 파티션 마운트하기
+date: 2018-02-27T03:26:00+09:00
 categories: tech
 tags: [systemd, mount, 마운트, 파티션, samba, nfs]
 ---

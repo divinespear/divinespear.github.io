@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "vue-cli + nightwatch on docker 삽질"
-date:   2019-07-19 08:20:00 +0900
+title: vue-cli + nightwatch on docker 삽질
+date: 2019-07-19T08:20:00+09:00
 categories: tech
 tags: [node.js, node, 노드, vue.js, vue, vue-cli, test, 테스트, e2e, nightwatch, selenium, 셀레늄, docker, 도커]
 ---

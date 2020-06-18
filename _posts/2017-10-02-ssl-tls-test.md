@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "내 사이트의 SSL/TLS 설정은 안녕하십네까?"
-date:   2017-10-02 00:51:00 +0900
+title: 내 사이트의 SSL/TLS 설정은 안녕하십네까?
+date: 2017-10-02T00:51:00+09:00
 categories: tech
 tags: [ssl, tls, security, 보안, test, 테스트]
 ---

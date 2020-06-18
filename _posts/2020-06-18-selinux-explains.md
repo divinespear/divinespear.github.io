@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "SELinux 가지고 놀기"
-date:   2020-06-18T17:16:00+09:00
+title: SELinux 가지고 놀기
+date: 2020-06-18T17:16:00+09:00
 categories: tech
 tags: [linux, redhat, centos, selinux, security]
 ---

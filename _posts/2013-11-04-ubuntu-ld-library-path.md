@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Ubuntu에서 LD_LIBRARY_PATH가 안먹을때"
-date:   2013-11-04 15:42:00 +0900
+title: Ubuntu에서 LD_LIBRARY_PATH가 안먹을때
+date: 2013-11-04T15:42:00+09:00
 categories: tech
 tags: [리눅스, 우분투, LD_LIBRARY_PATH, ldconfig, linux, ubuntu]
 ---
