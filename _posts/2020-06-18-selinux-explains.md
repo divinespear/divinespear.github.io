@@ -6,8 +6,6 @@ categories: tech
 tags: [linux, redhat, centos, selinux, security]
 ---
 
-## 시작하기 전에
-
 SELinux가 기본으로 설치되는 레드햇/CentOS 계열을 기준으로 쓰는 글이다.
 
 데비안/우분투 계열은 SELinux를 안깔아주기 때문에 직접 깔 게 아니면 신경 안써도 되느니라. \
