@@ -2,7 +2,7 @@
 layout: post
 title: Ubuntu에서 LD_LIBRARY_PATH가 안먹을때
 date: 2013-11-04T15:42:00+09:00
-categories: tech
+categories: linux
 tags: [리눅스, 우분투, LD_LIBRARY_PATH, ldconfig, linux, ubuntu]
 ---
 
