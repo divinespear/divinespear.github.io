@@ -8,8 +8,6 @@ tags: [vscode,remote,docker,git]
 
 한 프로젝트에 `backend`와 `frontend`가 있는데 이걸 각각 별도의 리모트 컨테이너로 띄우는게 목적이다.
 
-## 서브프로젝트 분리해서 띄우기
-
 일단 `docker-compose.yml`을 만들었다. \
 개발에 사용할 디비라던가 이것저것 설정해주고, 각각의 서브프로젝트별 서비스를 추가해준다.
 
@@ -38,10 +36,9 @@ services:
       TZ: Asia/Seoul
     volumes:
       - ~/.gitconfig:/home/node/.gitconfig:ro
-      - ./.git:/workspace/.git
-      - ./backend:/workspace/backend
+      - .:/workspace
     ports:
-      - 4001:4000
+      - 3000:3000
       - 9222:9222
   frontend:
     build:
@@ -53,10 +50,9 @@ services:
       TZ: Asia/Seoul
     volumes:
       - ~/.gitconfig:/home/node/.gitconfig:ro
-      - ./.git:/workspace/.git
-      - ./frontend:/workspace/frontend
+      - .:/workspace
     ports:
-      - 4000:4000
+      - 8080:8080
       - 9229:9229
 ```
 
@@ -82,27 +78,3 @@ services:
 ```
 
 그리고 각각의 서브디렉토리를 `Remote-Containers: Open Folder in Container...`로 열어주면 잘 열린다.
-
-## 그리고 Git
-
-그런데 말입니다...
-
-분명 Git 저장소도 마운트가 되어있는데 (위 설정에서 `/workspace/.git`으로 되어있다.) `git`을 실행하면
-
-```sh
-/workspace/backend $ git status
-fatal: not a git repository (or any parent up to mount point /workspace)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-```
-모라고요?
-
-그래서 각각의 서비스에 `GIT_DISCOVERY_ACROSS_FILESYSTEM` 환경변수를 추가해줘야 한다.
-
-```diff
-     environment:
-       TZ: Asia/Seoul
-+      GIT_DISCOVERY_ACROSS_FILESYSTEM: 1
-     volumes:
-```
-
-그리고 컨테이너를 리빌드 하면 `git` 명령이 정상적으로 작동하게 된다.
