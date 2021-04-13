@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "다소 변태적인 Typescript의 Type Constraints"
+title: "다소 특이한 Typescript의 제네릭 사용법"
 date: 2021-04-13T23:32:00+09:00
 categories: [typescript]
 tags: [typescript, generic]
 ---
+
+타입스크립트의 제네릭으로 다소 특이한 코딩을 할 수 있다.
 
 ```typescript
 interface ResponseType<R> {
@@ -16,7 +18,7 @@ interface VariableType<V> {
 }
 
 interface MessageType<R, V = undefined> extends ResponseType<R>, VariableType<V> {
-  // 클래스 타입이 아니면 deep type constraints가 작동하지 않는다.
+  // 클래스 타입이 아니면 type constraints가 작동하지 않는다.
   new: () => MessageType<R, V>;
 }
 
@@ -30,7 +32,7 @@ interface Message {
 }
 
 // message는 Message 인터페이스의 필드명으로 제한된다.
-// variable과 리턴 타입 역시 인터페이스에 설정한 대로...
+// variable과 리턴 타입 역시 인터페이스에 설정한 값으로 제한된다.
 function call<K extends keyof Message, R = ResponseOf<Message[K]>>(message: K, variable: VariableOf<Message[K]>): R {
   // 대충 생략
 }
